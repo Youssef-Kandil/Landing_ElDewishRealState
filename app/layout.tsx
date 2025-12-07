@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Alexandria } from "next/font/google";
+import Footer from "./components/Footer/Footer";
+import WhatsAppButton from "./components/WhatsAppButton/WhatsAppButton";
 import "./globals.css";
 
-const geistSans = Geist({
+import { urls } from "./Configs/urls";
+
+const AlexandriaFont = Alexandria({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,11 +24,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" dir="rtl">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${AlexandriaFont.variable}  antialiased`}
       >
         {children}
+        <Footer/>
+        <WhatsAppButton whatsapp_url={urls.whatsapp}/>
       </body>
     </html>
   );

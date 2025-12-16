@@ -64,13 +64,14 @@ export default function GallerySection({
         <div className="flex gap-4">
           {imagesToShow.map((src, index) => (
             <div
-              key={index}
+            key={`${activeTab}-${src}`}
               className="flex-shrink-0 w-48 h-48 sm:w-56 sm:h-56 md:w-60 md:h-60 rounded-2xl overflow-hidden border border-gray-200 shadow-lg relative group cursor-pointer"
               onClick={() => setPreviewImage(src)}
             >
               <Image
                 src={src}
                 alt={`Gallery image ${index + 1}`}
+                loading="eager"
                 fill
                 className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-3"
               />
@@ -89,6 +90,7 @@ export default function GallerySection({
       <Image
         src={previewImage}
         alt="Preview"
+        loading='lazy'
         fill
         className="object-contain rounded-xl"
       />

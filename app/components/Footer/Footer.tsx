@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTwitter ,FaTiktok,FaSnapchatGhost} from "react-icons/fa";
+
 
 export default function Footer() {
   return (
@@ -16,17 +17,20 @@ export default function Footer() {
         {/* Right Social Icons */}
         <div className="flex flex-col items-center md:items-end space-y-2">
           <div className="flex gap-4 text-white-700 text-lg">
-            <a href="#" aria-label="Facebook" className="hover:text-blue-600 transition-colors">
+            <a href="https://www.facebook.com/?locale=ar_AR" aria-label="Facebook" className="hover:text-blue-600 transition-colors">
               <FaFacebookF />
             </a>
-            <a href="#" aria-label="Instagram" className="hover:text-pink-500 transition-colors">
+            <a href="https://www.instagram.com/maje.dre/" aria-label="Instagram" className="hover:text-pink-500 transition-colors">
               <FaInstagram />
             </a>
-            <a href="#" aria-label="Twitter" className="hover:text-blue-400 transition-colors">
+            <a href="https://x.com/maje_dre" aria-label="Twitter" className="hover:text-blue-400 transition-colors">
               <FaTwitter />
             </a>
-            <a href="#" aria-label="LinkedIn" className="hover:text-blue-700 transition-colors">
-              <FaLinkedinIn />
+            <a href="https://www.snapchat.com/add/majed.dowish?share_id=r31vUY64iTg&locale=ar-EG" aria-label="LinkedIn" className="hover:text-blue-700 transition-colors">
+              <FaSnapchatGhost />
+            </a>
+            <a href="https://www.tiktok.com/@maje.dre" aria-label="LinkedIn" className="hover:text-blue-700 transition-colors">
+              <FaTiktok />
             </a>
           </div>
 

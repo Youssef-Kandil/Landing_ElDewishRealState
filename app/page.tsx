@@ -1,7 +1,7 @@
 "use client";
 
 import { urls } from "./Configs/urls";
-import { useRouter } from "next/navigation";
+
 
 import Image from "next/image";
 import { FaStore, FaCarSide } from "react-icons/fa";
@@ -14,7 +14,7 @@ import SectionWithPhotos from "./components/SectionWithPhotos/SectionWithPhotos"
 import GallerySection from "./components/GallerySection/GallerySection";
 
 export default function Home() {
-  const router = useRouter();
+
 
   const cards = [
     {
@@ -44,14 +44,23 @@ export default function Home() {
             src="/images/bg1.jpeg"
             alt="hero"
             fill
-            className="object-cover"
+            className=" hidden md:block object-cover object-[center_25%]"
             priority
           />
+          {/* Mobile */}
+            <Image
+              src="/images/bg2.png"
+              alt="hero"
+              fill
+              priority
+              className="block md:hidden object-cover object-center"
+            />
         </div>
 
         {/* Cards */}
-        <div className="absolute left-1/2 bottom-12 transform -translate-x-1/2 w-full px-4">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* <div className="absolute left-1/2 bottom-12 transform -translate-x-1/2 w-full px-4 max-[635px]:relative"> */}
+        <div className="absolute left-1/2 bottom-12 transform -translate-x-1/2 w-full px-4 max-[635px]:relative max-[635px]:bottom-0 ">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
             {cards.map((box, i) => (
               <div
                 key={i}
@@ -68,20 +77,20 @@ export default function Home() {
         </div>
 
         {/* Space below to allow boxes to appear */}
-        <div className="h-40"></div>
+        <div className="h-40 "></div>
 
       </section>
 
       <InfoSection 
         title="موقع متميز علي شواطئ مدينة الخبر" 
         subtitle="استمتع بموقع استراتيجي متميز بالقرب من المولات و الفنادق ، و الخدمات الصحية مع سهولة الوصول للكورنيش و اماكن الترفيه للعائلة" image="/images/map.jpeg" 
-        ctaText="احجز وحدتك الان" ctaLink="" />
+        ctaText="احجز وحدتك الان" ctaLink={urls?.whatsapp??"#"} />
 
-        <SectionWithPhotos ctaFunction={()=>router.push(urls?.whatsapp??"#")}  title="اطلالة بحرية ساحرة" subtitle="استمتع باطلالة بحرية ساحرة علي شواطئ مدينة الخبر" description="استمتع بافضل اطلالة ساحلية بجانب جراند مول و جسر الملك فهد" imageFront="/images/blue.jpeg" imageBack="/images/bg1.jpeg"/>
-        <SectionWithPhotos ctaFunction={()=>router.push(urls?.whatsapp??"#")}  reverse title="مقابل جراند مول" subtitle=" الذي سيفتتح قريبآ" description="استمتع بمول يجمع بين التسوق و الترفيه و الخدمات المتنوعة مع اماكن استراحة مريحة لجميع افراد العائلة و الزوار" imageFront="/images/Gallery/exteriorImages/ex3.png" imageBack="/images/Gallery/exteriorImages/ex5.png"/>
-        <SectionWithPhotos ctaFunction={()=>router.push(urls?.whatsapp??"#")}   title="انظمة دخول ذكي و كاميرات مراقبة" subtitle="الراحة و الامان لك و لعائلتك" description="المبنى بالقرب من مستشفيات صيدليات معامل طبية ، مدارس و مرافق تعليمية حديثة لتضمن رعاية صحية و تعليمية متكاملة لجميع افراد عائلتك" imageFront="/images/cam1.jpeg" imageBack="/images/smartlock.webp"/>
-        <SectionWithPhotos ctaFunction={()=>router.push(urls?.whatsapp??"#")}  reverse title="مساحات و تصاميم فاخرة" subtitle="راحة و فخامة في كل زاوية" description="تبدأ المساحات من 200م بتصاميم داخلية و خارجية فاخرة" imageFront="/images/Gallery/interiorImages/3.jpeg" imageBack="/images/Gallery/interiorImages/7.jpeg"/>
-        <SectionWithPhotos ctaFunction={()=>router.push(urls?.whatsapp??"#")}   title="مواقف حديثة مجهزة" subtitle="بشواحن كهربائية و ضاغط الهواء" description="موقف خاص بسيارتك مجهز باحدث الشواحن الكهربائية و ضاغط الهواء" imageFront="/images/car.webp" imageBack="/images/bg1.jpeg"/>
+        <SectionWithPhotos  ctaFunction={() => urls?.whatsapp && (window.location.href = urls.whatsapp)}  title="اطلالة بحرية ساحرة" subtitle="استمتع باطلالة بحرية ساحرة علي شواطئ مدينة الخبر" description="استمتع بافضل اطلالة ساحلية بجانب جراند مول و جسر الملك فهد" imageFront="/images/blue.jpeg" imageBack="/images/bg1.jpeg"/>
+        <SectionWithPhotos  ctaFunction={() => urls?.whatsapp && (window.location.href = urls.whatsapp)}  reverse title="مقابل جراند مول" subtitle=" الذي سيفتتح قريبآ" description="استمتع بمول يجمع بين التسوق و الترفيه و الخدمات المتنوعة مع اماكن استراحة مريحة لجميع افراد العائلة و الزوار" imageFront="/images/Gallery/exteriorImages/ex3.png" imageBack="/images/Gallery/exteriorImages/ex5.png"/>
+        <SectionWithPhotos  ctaFunction={() => urls?.whatsapp && (window.location.href = urls.whatsapp)}   title="انظمة دخول ذكي و كاميرات مراقبة" subtitle="الراحة و الامان لك و لعائلتك" description="المبنى بالقرب من مستشفيات صيدليات معامل طبية ، مدارس و مرافق تعليمية حديثة لتضمن رعاية صحية و تعليمية متكاملة لجميع افراد عائلتك" imageFront="/images/cam1.jpeg" imageBack="/images/smartlock.webp"/>
+        <SectionWithPhotos  ctaFunction={() => urls?.whatsapp && (window.location.href = urls.whatsapp)}  reverse title="مساحات و تصاميم فاخرة" subtitle="راحة و فخامة في كل زاوية" description="تبدأ المساحات من 200م بتصاميم داخلية و خارجية فاخرة" imageFront="/images/Gallery/interiorImages/3.jpeg" imageBack="/images/Gallery/interiorImages/7.jpeg"/>
+        <SectionWithPhotos  ctaFunction={() => urls?.whatsapp && (window.location.href = urls.whatsapp)}  title="مواقف حديثة مجهزة" subtitle="بشواحن كهربائية و ضاغط الهواء" description="موقف خاص بسيارتك مجهز باحدث الشواحن الكهربائية و ضاغط الهواء" imageFront="/images/car.webp" imageBack="/images/bg1.jpeg"/>
 
         <GallerySection 
           title="صور المشروع" 
